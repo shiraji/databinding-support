@@ -1,0 +1,44 @@
+buildscript {
+    ext.kotlin_version = '1.0.5-2'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id "org.jetbrains.intellij" version "0.1.10"
+}
+
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'kotlin'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+intellij {
+    version '15.0.4'
+    pluginName 'Convert to Databinding layout'
+    alternativeIdePath = '/Applications/Android Studio.app'
+    updateSinceUntilBuild = false
+    sameSinceUntilBuild = false
+    publish {
+        username 'shiraji'
+        password '' // please fill in
+        pluginId '' // please fill in
+    }
+}
+
+group 'com.github.shiraji.databindinglayout'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}

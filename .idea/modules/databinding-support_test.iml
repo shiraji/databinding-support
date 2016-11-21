@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="databinding-layout:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="com.github.shiraji.todatabinding" external.system.module.type="sourceSet" external.system.module.version="1.0.0" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="databinding-support:test" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="com.github.shiraji.databindinglayout" external.system.module.type="sourceSet" external.system.module.version="1.0.0" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
-    <output url="file://$MODULE_DIR$/../../build/classes/main" />
+    <output-test url="file://$MODULE_DIR$/../../build/classes/test" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../src/main">
-      <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../src/main/kotlin" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../src/main/resources" type="java-resource" />
+    <content url="file://$MODULE_DIR$/../../src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/test/kotlin" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/test/resources" type="java-test-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="databinding-support_main" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.0.5-2" level="project" />
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/lib/tools.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="module-library">
       <library name="Gradle: com.jetbrains:idea:15.0.4">
         <CLASSES>
@@ -120,15 +130,9 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library" scope="RUNTIME">
-      <library>
-        <CLASSES>
-          <root url="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/lib/tools.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-runtime:1.0.5-2" level="project" />
+    <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />
   </component>
+  <component name="TestModuleProperties" production-module="databinding-support_main" />
 </module>

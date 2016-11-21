@@ -1,6 +1,6 @@
 <idea-plugin version="2">
     <id>com.github.shiraji.databindinglayout</id>
-    <name>Convert to Databinding layout</name>
+    <name>Databinding Support</name>
     <version>1.0.0</version>
     <vendor email="isogai.shiraji@gmail.com" url="http://github.com/shiraji">Shiraji</vendor>
 

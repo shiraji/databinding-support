@@ -19,8 +19,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="databinding-layout_main" target="1.8" />
-      <module name="databinding-layout_test" target="1.8" />
+        <module name="databinding-support_main" target="1.8"/>
+        <module name="databinding-support_test" target="1.8"/>
     </bytecodeTargetLevel>
   </component>
 </project>

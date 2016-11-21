@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Convert to Databinding layout [runIdea]" type="GradleRunConfiguration" factoryName="Gradle" singleton="true">
+  <configuration default="false" name="databinding-support [buildPlugin]" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -10,7 +10,7 @@
       </option>
       <option name="taskNames">
         <list>
-          <option value="runIdea" />
+          <option value="buildPlugin" />
         </list>
       </option>
       <option name="vmOptions" value="" />

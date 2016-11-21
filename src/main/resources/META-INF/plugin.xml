@@ -5,9 +5,15 @@
     <vendor email="isogai.shiraji@gmail.com" url="http://github.com/shiraji">Shiraji</vendor>
 
     <description><![CDATA[
+    Intellij plugin that support [Android Data Binding Library](https://developer.android.com/topic/libraries/data-binding/index.html)
     ]]></description>
 
     <change-notes><![CDATA[
+        <p>1.0.0</p>
+        <ul>
+          <li>Initial release</li>
+        </ul>
+        <p>Older version changes are listed on <a href="https://github.com/shiraji/databinding-support/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
     ]]>
     </change-notes>
 

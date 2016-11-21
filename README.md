@@ -6,7 +6,9 @@ Intellij plugin that support [Android Data Binding Library](https://developer.an
 
 ### Wrap with `<layout></layout>`
 
+![wrap](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap.gif)
 
+...and more features come
 
 ## How to install
 

@@ -31,6 +31,11 @@
             <className>com.github.shiraji.databindinglayout.intentions.ConvertToDatabindingLayoutIntention</className>
             <category>XML</category>
         </intentionAction>
+
+        <intentionAction>
+            <className>com.github.shiraji.databindinglayout.intentions.AddDataTagIntention</className>
+            <category>XML</category>
+        </intentionAction>
     </extensions>
 
     <application-components>

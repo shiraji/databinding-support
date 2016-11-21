@@ -10,6 +10,10 @@ There screenshots show popup how to use the features. The popup comes from [Pres
 
 ![wrap](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap.gif)
 
+### Add `<data>` tag
+
+![add_data](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/add_data.gif)
+
 ...and more features come
 
 ## How to install

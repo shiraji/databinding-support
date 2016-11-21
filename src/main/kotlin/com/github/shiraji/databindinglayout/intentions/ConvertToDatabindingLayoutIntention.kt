@@ -1,4 +1,4 @@
-package com.github.shiraji.databindinglayout
+package com.github.shiraji.databindinglayout.intentions
 
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.lang.xml.XMLLanguage

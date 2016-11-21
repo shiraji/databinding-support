@@ -28,7 +28,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <intentionAction>
-            <className>com.github.shiraji.databindinglayout.ConvertToDatabindingLayoutIntention</className>
+            <className>com.github.shiraji.databindinglayout.intentions.ConvertToDatabindingLayoutIntention</className>
             <category>XML</category>
         </intentionAction>
     </extensions>

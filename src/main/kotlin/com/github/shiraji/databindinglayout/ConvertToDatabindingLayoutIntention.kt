@@ -9,6 +9,9 @@ import com.intellij.psi.XmlElementFactory
 import com.intellij.psi.xml.XmlFile
 
 class ConvertToDatabindingLayoutIntention : IntentionAction {
+
+    val whiteList = listOf("manifest", "project", "component", "module")
+
     override fun getText() = "Convert to databinding layout"
     override fun getFamilyName() = "Convert to databinding layout"
     override fun startInWriteAction() = true
@@ -16,8 +19,9 @@ class ConvertToDatabindingLayoutIntention : IntentionAction {
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
         if (file !is XmlFile) return false
         val rootTag = file.rootTag ?: return false
-        return rootTag.name != "layout"
-                && rootTag.getAttribute("xmlns:android") != null
+        val rootTagName = rootTag.name
+        if (whiteList.contains(rootTagName)) return false
+        return rootTagName != "layout" && rootTag.getAttribute("xmlns:android") != null
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {

@@ -3,6 +3,7 @@ env:
   matrix:
   - IDEA_VERSION=LATEST-EAP-SNAPSHOT
   global:
+    secure: ksx5CiBggo5cLdv3StDIS+SxLKQYMmqXT8u4F1g0lb2gUfAJ2iw7sNG29RU4UEYLichdJSldltjc2ZEuiuDnED0JY0tZfYqcb1WGXlMg7uWH9VIFYQzriEkD+sAwqAcIaRTE7gqrOTQG0RePiE3mnBkB6cegAvnRBfn6j/OmBJNpAsQw/8mhwwWBpyTCbqc2UqDmPJ5HuxNXY+nIW2KAQ38DDBnsm19+qz9BJZaSDhmqsGaKIpLCDDDs7hGQCvhrIX2f+sr4ZFg2HsypnRKw08MDriMbRWeE2QB1yRpZ8Zd3rQ5VDnrJDxTUyBFlSlyOFoquMJ80miSZYVv2nZpuX7isAezKoZvGpbZZnsi94Ufi0e805zyYhlucC/Fj5ac2IpmryOJiSiOsLNH9pAwooTv13026Q5A0DylV5nwKKr+XtqYE3A0+qFUc3GjOXl+jmY2C1yANhZKCpZ0RHdbeBsNsJHMnEZqA5Hb+M6CuN7J/Howzov9N/X/qCHhSmmG6dfVkS9HXI2vJJZfq+lFOspUNbmsyESAKTmFZPLra7y+KdPvddCJw+HH9vluCqOnFOtq+PXju86tkVB9F87QvwTUUymuAvaXFU94L1IXcySw6hQUuge1IPFsQP3WqsafCtBlGEbH/BRZTasPtZy5OS/xYA9AEyobuTLVE1ZNt/88=
 jdk:
 - oraclejdk8
 script:
@@ -16,7 +17,7 @@ cache:
 after_success:
 - .travis/after_success.sh
 before_install:
-- openssl aes-256-cbc -K $encrypted_db8923e9d877_key -iv $encrypted_db8923e9d877_iv
-  -in travis.enc -out .travis.ssh -d
+- openssl aes-256-cbc -K $encrypted_8927e9dc8a09_key -iv $encrypted_8927e9dc8a09_iv
+  -in travis.enc -out ~\/.ssh/travis/travis -d
 - chmod 600 .travis.ssh
 - echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile .travis.ssh\n" >> ~/.ssh/config

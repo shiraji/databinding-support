@@ -18,6 +18,11 @@ apply plugin: 'kotlin'
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
+ext {
+    versionFile = project.file("VERSION")
+    versionName = versionFile.readLines()[0].trim()
+}
+
 intellij {
     version '15.0.4'
     pluginName 'Convert to Databinding layout'
@@ -32,7 +37,7 @@ intellij {
 }
 
 group 'com.github.shiraji.databindinglayout'
-version '1.0.0'
+version versionName
 
 repositories {
     mavenCentral()
@@ -41,4 +46,23 @@ repositories {
 dependencies {
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
+
+task prepareForNextDevelopment << {
+    def versionParts = versionName.split(/\./)
+    versionParts[2] = (versionParts[2] as int) + 1
+    def newVersion = "${versionParts[0]}.${versionParts[1]}.${versionParts[2]}-SNAPSHOT"
+    versionFile.write(newVersion + "\n")
+}
+
+task prepareForRelease << {
+    def versionParts = versionName.split(/\./)
+    versionParts[2] = versionParts[2].split(/-/)[0]
+    def newVersion = "${versionParts[0]}.${versionParts[1]}.${versionParts[2]}"
+    versionFile.write(newVersion + "\n")
+    new File("$projectDir/.travis/release").createNewFile()
 }

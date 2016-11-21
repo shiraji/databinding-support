@@ -1,0 +1,22 @@
+language: java
+env:
+  matrix:
+  - IDEA_VERSION=LATEST-EAP-SNAPSHOT
+  global:
+jdk:
+- oraclejdk8
+script:
+- ./gradlew test -PideaVersion=$IDEA_VERSION
+notifications:
+  email: false
+cache:
+  directories:
+  - $HOME/.m2
+  - $HOME/.gradle
+after_success:
+- .travis/after_success.sh
+before_install:
+- openssl aes-256-cbc -K $encrypted_db8923e9d877_key -iv $encrypted_db8923e9d877_iv
+  -in travis.enc -out .travis.ssh -d
+- chmod 600 .travis.ssh
+- echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile .travis.ssh\n" >> ~/.ssh/config

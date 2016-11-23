@@ -9,9 +9,10 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        <p>1.0.1</p>
+        <p>1.0.2</p>
         <ul>
-          <li>Add data tag support #4</li>
+          <li>Add descriptions for intentions</li>
+          <li>Move the intention section Android instead of XML</li>
         </ul>
         <p>Older version changes are listed on <a href="https://github.com/shiraji/databinding-support/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
     ]]>
@@ -29,12 +30,12 @@
     <extensions defaultExtensionNs="com.intellij">
         <intentionAction>
             <className>com.github.shiraji.databindinglayout.intentions.ConvertToDatabindingLayoutIntention</className>
-            <category>XML</category>
+            <category>Android</category>
         </intentionAction>
 
         <intentionAction>
             <className>com.github.shiraji.databindinglayout.intentions.AddDataTagIntention</className>
-            <category>XML</category>
+            <category>Android</category>
         </intentionAction>
     </extensions>
 

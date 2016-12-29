@@ -9,10 +9,10 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        <p>1.0.2</p>
+        <p>1.0.3</p>
         <ul>
-          <li>Add descriptions for intentions</li>
-          <li>Move the intention section Android instead of XML</li>
+          <li>Fill `@{}` in to empty tag #2</li>
+          <li>wrap `@{}` to non-empty tag #3</li>
         </ul>
         <p>Older version changes are listed on <a href="https://github.com/shiraji/databinding-support/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
     ]]>

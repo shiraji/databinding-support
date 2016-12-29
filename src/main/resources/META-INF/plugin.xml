@@ -1,4 +1,4 @@
-<idea-plugin version="2" url="">
+<idea-plugin version="2" url="https://plugins.jetbrains.com/plugin/9271">
     <id>com.github.shiraji.databindinglayout</id>
     <name>Databinding Support</name>
     <version>1.0.0</version>

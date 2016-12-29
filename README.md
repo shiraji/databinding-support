@@ -14,6 +14,10 @@ There screenshots show popup how to use the features. The popup comes from [Pres
 
 ![add_data](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/add_data.gif)
 
+### Wrap with `@{}`
+
+![wrap_with_tag](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap_with_tag.gif)
+
 ...and more features come
 
 ## How to install

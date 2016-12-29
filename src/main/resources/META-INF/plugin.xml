@@ -37,6 +37,11 @@
             <className>com.github.shiraji.databindinglayout.intentions.AddDataTagIntention</className>
             <category>Android</category>
         </intentionAction>
+
+        <intentionAction>
+            <className>com.github.shiraji.databindinglayout.intentions.AddDatabindingExpressionIntention</className>
+            <category>XML</category>
+        </intentionAction>
     </extensions>
 
     <application-components>

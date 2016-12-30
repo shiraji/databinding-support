@@ -42,6 +42,11 @@
             <className>com.github.shiraji.databindinglayout.intentions.AddDatabindingExpressionIntention</className>
             <category>XML</category>
         </intentionAction>
+
+        <intentionAction>
+            <className>com.github.shiraji.databindinglayout.intentions.SwitchTo2WayDatabindingIntention</className>
+            <category>Android</category>
+        </intentionAction>
     </extensions>
 
     <application-components>

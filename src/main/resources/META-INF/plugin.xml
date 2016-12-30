@@ -40,7 +40,7 @@
 
         <intentionAction>
             <className>com.github.shiraji.databindinglayout.intentions.AddDatabindingExpressionIntention</className>
-            <category>XML</category>
+            <category>Android</category>
         </intentionAction>
     </extensions>
 

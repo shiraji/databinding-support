@@ -15,9 +15,8 @@ class AddDataTagIntention : IntentionAction {
     override fun startInWriteAction() = true
 
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
-        if (file !is XmlFile) return false
-        val rootTag = file.rootTag ?: return false
-        return rootTag.name == "layout" && rootTag.findSubTags("data").isEmpty()
+        val rootTag = file.getRootTag() ?: return false
+        return rootTag.isDatabindingRootTag() && rootTag.findSubTags("data").isEmpty()
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {

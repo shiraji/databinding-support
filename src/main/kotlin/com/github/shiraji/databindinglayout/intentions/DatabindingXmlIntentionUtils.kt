@@ -8,14 +8,25 @@ import com.intellij.psi.xml.XmlFile
 import com.intellij.psi.xml.XmlTag
 
 fun getPointingXmlAttribute(editor: Editor?, file: PsiFile?): XmlAttribute? {
-    if (file !is XmlFile) return null
-    val rootTag = file.rootTag ?: return null
-    val rootTagName = rootTag.name
-    if (rootTagName != "layout" || rootTag.getAttribute("xmlns:android") == null) return null
     val offset = editor?.caretModel?.offset ?: return null
-    val psiElement = file.findElementAt(offset)
+    val psiElement = file?.findElementAt(offset) ?: return null
     return PsiTreeUtil.getParentOfType(psiElement, XmlAttribute::class.java)
 }
+
+fun PsiFile?.getRootTag(): XmlTag? {
+    if (this !is XmlFile) return null
+    return rootTag
+}
+
+fun PsiFile?.hasDatabindingLayout(): Boolean {
+    return getRootTag()?.isDatabindingRootTag() ?: return false
+}
+
+fun XmlTag.isDatabindingRootTag() = isLayoutTag() && hasNamespaceAndroid()
+
+fun XmlTag.isLayoutTag() = name == "layout"
+
+fun XmlTag.hasNamespaceAndroid() = getAttribute("xmlns:android") != null
 
 fun XmlAttribute.isLayoutTag() = "layout" == PsiTreeUtil.getParentOfType(this, XmlTag::class.java)?.name
 

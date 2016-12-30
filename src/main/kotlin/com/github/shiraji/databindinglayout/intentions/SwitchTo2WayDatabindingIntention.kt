@@ -11,6 +11,7 @@ class SwitchTo2WayDatabindingIntention : IntentionAction {
     override fun startInWriteAction() = true
 
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
+        if (!file.hasDatabindingLayout()) return false
         val xmlAttribute = getPointingXmlAttribute(editor, file) ?: return false
         return !xmlAttribute.isLayoutTag() && xmlAttribute.hasDatabindingExpression()
     }

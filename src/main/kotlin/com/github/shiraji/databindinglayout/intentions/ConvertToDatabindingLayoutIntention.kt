@@ -6,7 +6,6 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import com.intellij.psi.XmlElementFactory
-import com.intellij.psi.xml.XmlFile
 
 class ConvertToDatabindingLayoutIntention : IntentionAction {
 
@@ -17,16 +16,13 @@ class ConvertToDatabindingLayoutIntention : IntentionAction {
     override fun startInWriteAction() = true
 
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
-        if (file !is XmlFile) return false
-        val rootTag = file.rootTag ?: return false
-        val rootTagName = rootTag.name
-        if (whiteList.contains(rootTagName)) return false
-        return rootTagName != "layout" && rootTag.getAttribute("xmlns:android") != null
+        val rootTag = file.getRootTag() ?: return false
+        if (rootTag.isDatabindingRootTag()) return false
+        return !whiteList.contains(rootTag.name)
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
-        if (file !is XmlFile) return
-        val rootTag = file.rootTag ?: return
+        val rootTag = file.getRootTag() ?: return
         val xmlnsAttribute = rootTag.attributes
                 .filter { it.name.startsWith("xmlns:") }
         val attributeText = xmlnsAttribute

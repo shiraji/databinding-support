@@ -23,3 +23,8 @@ fun XmlAttribute.hasDatabindingExpression(): Boolean {
     val value = value ?: return false
     return value.startsWith("@{") && value.endsWith("}")
 }
+
+fun XmlAttribute.has2WayDatabindingExpression(): Boolean {
+    val value = value ?: return false
+    return value.startsWith("@={") && value.endsWith("}")
+}

@@ -5,18 +5,17 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 
-class AddDatabindingExpressionIntention : IntentionAction {
+class SwitchTo2WayDatabindingIntention : IntentionAction {
     override fun getFamilyName() = text
-    override fun getText() = "Wrap with @{}"
+    override fun getText() = "Switch to 2-way databinding '@={}'"
     override fun startInWriteAction() = true
 
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
         val xmlAttribute = getPointingXmlAttribute(editor, file) ?: return false
-        return !xmlAttribute.isLayoutTag() && !xmlAttribute.hasDatabindingExpression()
+        return !xmlAttribute.isLayoutTag() && xmlAttribute.hasDatabindingExpression()
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
-        val xmlAttribute = getPointingXmlAttribute(editor, file) ?: return
-        xmlAttribute.value = "@{${xmlAttribute.value}}"
+        getPointingXmlAttribute(editor, file)?.let { it.value = it.value?.replaceFirst("@{", "@={") }
     }
 }

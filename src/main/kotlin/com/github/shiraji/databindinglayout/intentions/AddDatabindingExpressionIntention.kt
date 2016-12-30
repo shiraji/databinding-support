@@ -12,7 +12,9 @@ class AddDatabindingExpressionIntention : IntentionAction {
 
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
         val xmlAttribute = getPointingXmlAttribute(editor, file) ?: return false
-        return !xmlAttribute.isLayoutTag() && !xmlAttribute.hasDatabindingExpression()
+        return !xmlAttribute.isLayoutTag()
+                && !xmlAttribute.hasDatabindingExpression()
+                && !xmlAttribute.has2WayDatabindingExpression()
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {

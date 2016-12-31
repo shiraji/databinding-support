@@ -1,3 +1,9 @@
+### [ver 1.0.4](https://github.com/shiraji/databinding-support/releases/tag/1.0.4)
+
+* Add 2way databinding support `@={}` #12
+* Add description for AddDatabindingExpressionIntention #14
+* Fix bugs #15
+
 ### [ver 1.0.3](https://github.com/shiraji/databinding-support/releases/tag/1.0.3)
 
 * Fill `@{}` in to empty tag #2

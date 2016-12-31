@@ -4,7 +4,7 @@ Intellij plugin that support [Android Data Binding Library](https://developer.an
 
 ## Features
 
-There screenshots show popup how to use the features. The popup comes from [Presentation Assistant](https://plugins.jetbrains.com/plugin/7345). 
+There screenshots show popup how to use the features. The popup comes from [Presentation Assistant](https://plugins.jetbrains.com/plugin/7345).
 
 ### Wrap with `<layout></layout>`
 
@@ -17,6 +17,10 @@ There screenshots show popup how to use the features. The popup comes from [Pres
 ### Wrap with `@{}`
 
 ![wrap_with_tag](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap_with_tag.gif)
+
+### Wrap with `@={}`
+
+![wrap_2way](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap_2way.gif)
 
 ...and more features come
 

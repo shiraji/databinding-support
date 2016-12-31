@@ -22,6 +22,10 @@ There screenshots show popup how to use the features. The popup comes from [Pres
 
 ![wrap_2way](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap_2way.gif)
 
+### Switch `@{}` and `@={}`
+
+![switch](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/switch.gif)
+
 ...and more features come
 
 ## How to install

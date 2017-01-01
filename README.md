@@ -35,7 +35,7 @@ Use the IDE's plugin manager to find "databinding-support" and install the plugi
 ## License
 
 ```
-Copyright 2016 Yoshinori Isogai
+Copyright 2017 Yoshinori Isogai
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

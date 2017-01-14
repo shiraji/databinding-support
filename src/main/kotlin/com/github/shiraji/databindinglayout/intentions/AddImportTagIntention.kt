@@ -6,7 +6,6 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
 import com.intellij.psi.XmlElementFactory
-import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.xml.XmlFile
 import com.intellij.psi.xml.XmlTag
 
@@ -22,10 +21,8 @@ class AddImportTagIntention : IntentionAction {
 
         if (rootTag.findFirstSubTag("data") == null) return false
 
-        val offset = editor?.caretModel!!.offset
-        val currentElement = file?.findElementAt(offset)
-        val parentTag = PsiTreeUtil.getParentOfType(currentElement, XmlTag::class.java)
-        return parentTag?.name == "data"
+        val parentTag = getPointingParentElement<XmlTag>(editor, file) ?: return false
+        return parentTag.name == "data"
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {

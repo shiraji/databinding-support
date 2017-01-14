@@ -63,6 +63,11 @@
             <className>com.github.shiraji.databindinglayout.intentions.AddImportTagIntention</className>
             <category>Android</category>
         </intentionAction>
+
+        <intentionAction>
+            <className>com.github.shiraji.databindinglayout.intentions.AddVariableTagIntention</className>
+            <category>Android</category>
+        </intentionAction>
     </extensions>
 
     <application-components>

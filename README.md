@@ -26,6 +26,14 @@ There screenshots show popup how to use the features. The popup comes from [Pres
 
 ![switch](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/switch.gif)
 
+### Add `<import>`
+
+![!add_import](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/add_import.gif)
+
+### Add `<variable>`
+
+![!add_variable](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/add_variable.gif)
+
 ...and more features come
 
 ## How to install

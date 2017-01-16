@@ -1,3 +1,8 @@
+### [ver 1.0.5](https://github.com/shiraji/databinding-support/releases/tag/1.0.5)
+
+* Add import tag intention #22 Thanks @sckm !
+* Add variable tag intention #23
+
 ### [ver 1.0.4](https://github.com/shiraji/databinding-support/releases/tag/1.0.4)
 
 * Add 2way databinding support `@={}` #12

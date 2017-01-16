@@ -1,7 +1,7 @@
 <idea-plugin version="2" url="https://plugins.jetbrains.com/plugin/9271">
     <id>com.github.shiraji.databindinglayout</id>
     <name>Databinding Support</name>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <vendor email="isogai.shiraji@gmail.com" url="http://github.com/shiraji">Shiraji</vendor>
 
     <description><![CDATA[
@@ -9,11 +9,10 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        <p>1.0.4</p>
+        <p>1.0.5</p>
         <ul>
-          <li>Add 2way databinding support `@={}` #12</li>
-          <li>Add description for AddDatabindingExpressionIntention #14/li>
-          <li>Fix bugs #15</li>
+          <li>Add import tag intention #22 Thanks @sckm !</li>
+          <li>Add variable tag intention #23</li>
         </ul>
         <p>Older version changes are listed on <a href="https://github.com/shiraji/databinding-support/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
     ]]>

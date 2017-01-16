@@ -1,16 +1,23 @@
 package com.github.shiraji.databindinglayout.intentions
 
 import com.intellij.openapi.editor.Editor
+import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.xml.XmlAttribute
 import com.intellij.psi.xml.XmlFile
 import com.intellij.psi.xml.XmlTag
 
-fun getPointingXmlAttribute(editor: Editor?, file: PsiFile?): XmlAttribute? {
+fun getPointingElement(editor: Editor?, file: PsiFile?): PsiElement? {
     val offset = editor?.caretModel?.offset ?: return null
-    val psiElement = file?.findElementAt(offset) ?: return null
-    return PsiTreeUtil.getParentOfType(psiElement, XmlAttribute::class.java)
+    return file?.findElementAt(offset)
+}
+
+fun getPointingXmlAttribute(editor: Editor?, file: PsiFile?) = getPointingParentElement<XmlAttribute>(editor, file)
+
+inline fun <reified T : PsiElement> getPointingParentElement(editor: Editor?, file: PsiFile?): T? {
+    val psiElement = getPointingElement(editor, file) ?: return null
+    return PsiTreeUtil.getParentOfType(psiElement, T::class.java)
 }
 
 fun PsiFile?.getRootTag(): XmlTag? {

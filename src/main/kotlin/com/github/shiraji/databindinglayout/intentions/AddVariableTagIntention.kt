@@ -9,9 +9,9 @@ import com.intellij.psi.XmlElementFactory
 import com.intellij.psi.xml.XmlFile
 import com.intellij.psi.xml.XmlTag
 
-class AddImportTagIntention : IntentionAction {
-    override fun getFamilyName() = "Add <import> tag"
-    override fun getText() = "Add <import> tag"
+class AddVariableTagIntention : IntentionAction {
+    override fun getFamilyName() = "Add <variable> tag"
+    override fun getText() = "Add <variable> tag"
 
     override fun startInWriteAction() = true
 
@@ -30,7 +30,8 @@ class AddImportTagIntention : IntentionAction {
         val dataTag = file.rootTag?.findFirstSubTag("data") ?: return
 
         val lastImportTag = findLastSubTag(dataTag, "import")
-        val newTag = XmlElementFactory.getInstance(project).createTagFromText("<import/>", XMLLanguage.INSTANCE)
+        val newTag = XmlElementFactory.getInstance(project).createTagFromText("<variable/>", XMLLanguage.INSTANCE)
+        newTag.setAttribute("name", "")
         newTag.setAttribute("type", "")
 
         val addedTag = if (lastImportTag == null) {
@@ -39,13 +40,13 @@ class AddImportTagIntention : IntentionAction {
             dataTag.addAfter(newTag, lastImportTag) as XmlTag
         }
 
-        val addedTypeValueOffset = addedTag?.getAttribute("type")?.valueElement?.textOffset
+        val addedTypeValueOffset = addedTag?.getAttribute("name")?.valueElement?.textOffset
         if (addedTypeValueOffset != null)
             editor?.caretModel?.moveToOffset(addedTypeValueOffset)
     }
 
     fun findLastSubTag(dataTag: XmlTag, tagName: String): XmlTag? {
         val importTags = dataTag.findSubTags(tagName)
-        return if (importTags.size > 0) importTags[importTags.size - 1] else null
+        return if (importTags.isNotEmpty()) importTags[importTags.size - 1] else null
     }
 }

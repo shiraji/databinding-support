@@ -7,7 +7,7 @@ env:
 jdk:
 - oraclejdk8
 script:
-- ./gradlew test -PideaVersion=$IDEA_VERSION
+- ./gradlew test -PideaVersion=$IDEA_VERSION --info --stacktrace
 notifications:
   email: false
 cache:

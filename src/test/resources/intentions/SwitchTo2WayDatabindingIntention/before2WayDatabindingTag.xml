@@ -1,0 +1,23 @@
+<!-- "Switch to 2-way databinding '@={}'" "false" -->
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <Button
+                android:id="@+id/to_aa_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="<caret>@={}"/>
+
+        <Button
+                android:id="@+id/to_foo_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/foo_activity"/>
+
+    </LinearLayout>
+</layout>

@@ -9,7 +9,9 @@ import com.intellij.psi.XmlElementFactory
 
 class ConvertToDatabindingLayoutIntention : IntentionAction {
 
-    val whiteList = listOf("manifest", "project", "component", "module")
+    companion object {
+        val BLACK_LIST = listOf("manifest", "project", "component", "module", "selector", "menu", "resources", "alpha")
+    }
 
     override fun getText() = "Convert to databinding layout"
     override fun getFamilyName() = "Convert to databinding layout"
@@ -18,7 +20,7 @@ class ConvertToDatabindingLayoutIntention : IntentionAction {
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
         val rootTag = file.getRootTag() ?: return false
         if (rootTag.isDatabindingRootTag()) return false
-        return !whiteList.contains(rootTag.name)
+        return !BLACK_LIST.contains(rootTag.name)
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {

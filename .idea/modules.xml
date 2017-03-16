@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/databinding-support.iml"
-              filepath="$PROJECT_DIR$/.idea/modules/databinding-support.iml"/>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/databinding-support_main.iml"
-              filepath="$PROJECT_DIR$/.idea/modules/databinding-support_main.iml" group="databinding-support"/>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/databinding-support_test.iml"
-              filepath="$PROJECT_DIR$/.idea/modules/databinding-support_test.iml" group="databinding-support"/>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/databinding-support.iml" filepath="$PROJECT_DIR$/.idea/modules/databinding-support.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/databinding-support_main.iml" filepath="$PROJECT_DIR$/.idea/modules/databinding-support_main.iml" group="databinding-support" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/databinding-support_test.iml" filepath="$PROJECT_DIR$/.idea/modules/databinding-support_test.iml" group="databinding-support" />
     </modules>
   </component>
 </project>

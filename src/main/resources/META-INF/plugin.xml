@@ -67,6 +67,8 @@
             <className>com.github.shiraji.databindinglayout.intentions.AddVariableTagIntention</className>
             <category>Android</category>
         </intentionAction>
+
+        <codeInsight.lineMarkerProvider language="JAVA" implementationClass="com.github.shiraji.databindinglayout.linemaker.LayoutNavigationLineMarkerProvider" />
     </extensions>
 
     <application-components>

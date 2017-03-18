@@ -1,3 +1,8 @@
+### [ver 1.0.6](https://github.com/shiraji/databinding-support/releases/tag/1.0.6)
+
+* Add Class -> layout navigation #10
+* Remove condition of requiring data tag for variable/import intention #30
+
 ### [ver 1.0.5](https://github.com/shiraji/databinding-support/releases/tag/1.0.5)
 
 * Add import tag intention #22 Thanks @sckm !

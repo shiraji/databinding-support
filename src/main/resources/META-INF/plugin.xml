@@ -9,10 +9,10 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        <p>1.0.5</p>
+        <p>1.0.6</p>
         <ul>
-          <li>Add import tag intention #22 Thanks @sckm !</li>
-          <li>Add variable tag intention #23</li>
+          <li>Add Class -> layout navigation #10</li>
+          <li>Remove condition of requiring data tag for variable/import intention #30</li>
         </ul>
         <p>Older version changes are listed on <a href="https://github.com/shiraji/databinding-support/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
     ]]>

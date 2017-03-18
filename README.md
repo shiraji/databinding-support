@@ -34,6 +34,10 @@ There screenshots show popup how to use the features. The popup comes from [Pres
 
 ![!add_variable](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/add_variable.gif)
 
+### Jump Class -> Layout
+
+[!jump_to_layout](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/jump_to_layout.gif)
+
 ...and more features come
 
 ## How to install

@@ -46,6 +46,6 @@ class AddImportTagIntention : IntentionAction {
 
     fun findLastSubTag(dataTag: XmlTag, tagName: String): XmlTag? {
         val importTags = dataTag.findSubTags(tagName)
-        return if (importTags.size > 0) importTags[importTags.size - 1] else null
+        return if (importTags.isNotEmpty()) importTags[importTags.size - 1] else null
     }
 }

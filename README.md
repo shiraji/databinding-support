@@ -36,7 +36,7 @@ There screenshots show popup how to use the features. The popup comes from [Pres
 
 ### Jump Class -> Layout
 
-[!jump_to_layout](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/jump_to_layout.gif)
+![!jump_to_layout](https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/jump_to_layout.gif)
 
 ...and more features come
 

@@ -17,32 +17,34 @@ class AddVariableTagIntention : IntentionAction {
 
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
         val rootTag = file.getRootTag() ?: return false
-        if (!rootTag.isDatabindingRootTag()) return false
-
-        if (rootTag.findFirstSubTag("data") == null) return false
-
-        val parentTag = getPointingParentElement<XmlTag>(editor, file) ?: return false
-        return parentTag.name == "data"
+        return rootTag.isDatabindingRootTag()
     }
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
         if (file !is XmlFile) return
-        val dataTag = file.rootTag?.findFirstSubTag("data") ?: return
+        val rootTag = file.rootTag ?: return
+        val dataTag = rootTag.findFirstSubTag("data")
+        val factory = XmlElementFactory.getInstance(project)
 
-        val lastImportTag = findLastSubTag(dataTag, "import")
-        val newTag = XmlElementFactory.getInstance(project).createTagFromText("<variable/>", XMLLanguage.INSTANCE)
-        newTag.setAttribute("name", "")
-        newTag.setAttribute("type", "")
-
-        val addedTag = if (lastImportTag == null) {
-            dataTag.addSubTag(newTag, true)
+        if (dataTag == null) {
+            val newTag = file.rootTag?.addSubTag(factory.createTagFromText("<data><variable name=\"\" type=\"\"/></data>", XMLLanguage.INSTANCE), true) ?: return
+            newTag.findFirstSubTag("variable")?.getAttribute("name")?.valueElement?.textOffset?.let { editor?.caretModel?.moveToOffset(it) }
         } else {
-            dataTag.addAfter(newTag, lastImportTag) as XmlTag
-        }
+            val lastImportTag = findLastSubTag(dataTag, "import")
+            val newTag = XmlElementFactory.getInstance(project).createTagFromText("<variable/>", XMLLanguage.INSTANCE)
+            newTag.setAttribute("name", "")
+            newTag.setAttribute("type", "")
 
-        val addedTypeValueOffset = addedTag?.getAttribute("name")?.valueElement?.textOffset
-        if (addedTypeValueOffset != null)
-            editor?.caretModel?.moveToOffset(addedTypeValueOffset)
+            val addedTag = if (lastImportTag == null) {
+                dataTag.addSubTag(newTag, true)
+            } else {
+                dataTag.addAfter(newTag, lastImportTag) as XmlTag
+            }
+
+            val addedTypeValueOffset = addedTag?.getAttribute("name")?.valueElement?.textOffset
+            if (addedTypeValueOffset != null)
+                editor?.caretModel?.moveToOffset(addedTypeValueOffset)
+        }
     }
 
     fun findLastSubTag(dataTag: XmlTag, tagName: String): XmlTag? {

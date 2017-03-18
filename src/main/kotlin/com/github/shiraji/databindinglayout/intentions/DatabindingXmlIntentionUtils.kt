@@ -1,8 +1,13 @@
 package com.github.shiraji.databindinglayout.intentions
 
+import com.intellij.ide.highlighter.XmlFileType
 import com.intellij.openapi.editor.Editor
+import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
+import com.intellij.psi.PsiManager
+import com.intellij.psi.search.FileTypeIndex
+import com.intellij.psi.search.ProjectScope
 import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.xml.XmlAttribute
 import com.intellij.psi.xml.XmlFile
@@ -45,4 +50,22 @@ fun XmlAttribute.hasDatabindingExpression(): Boolean {
 fun XmlAttribute.has2WayDatabindingExpression(): Boolean {
     val value = value ?: return false
     return value.startsWith("@={") && value.endsWith("}")
+}
+
+fun collectLayoutVariableTypesOf(psiClass: PsiClass): List<XmlAttribute>? {
+    val project = psiClass.project
+    val psiManager = PsiManager.getInstance(project)
+    return FileTypeIndex.getFiles(XmlFileType.INSTANCE, ProjectScope.getProjectScope(project)).filterNot {
+        it.path.contains("/.idea/")
+    }.map {
+        (psiManager.findFile(it) as? XmlFile)?.rootTag
+    }.filterNotNull().filter(XmlTag::isLayoutTag).flatMap {
+        it.findSubTags("data").asIterable()
+    }.filterNotNull().flatMap {
+        it.findSubTags("variable").asIterable()
+    }.map {
+        it.getAttribute("type")
+    }.filterNotNull().filter {
+        it.value == psiClass.qualifiedName
+    }
 }

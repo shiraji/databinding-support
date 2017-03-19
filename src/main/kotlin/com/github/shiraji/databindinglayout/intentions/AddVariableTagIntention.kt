@@ -30,7 +30,7 @@ class AddVariableTagIntention : IntentionAction {
 
         if (dataTag == null) {
             val newTag = file.rootTag?.addSubTag(factory.createTagFromText("<data><variable name=\"\" type=\"\"/></data>", XMLLanguage.INSTANCE), true) ?: return
-            newTag.findFirstSubTag("variable")?.getAttribute("name")?.valueElement?.textOffset?.let { editor?.caretModel?.moveToOffset(it) }
+            moveCaretToNameValue(newTag.findFirstSubTag("variable"), editor)
         } else {
             val lastImportTag = findLastSubTag(dataTag, "import")
             val newTag = XmlElementFactory.getInstance(project).createTagFromText("<variable/>", XMLLanguage.INSTANCE)
@@ -43,10 +43,12 @@ class AddVariableTagIntention : IntentionAction {
                 dataTag.addAfter(newTag, lastImportTag) as XmlTag
             }
 
-            val addedTypeValueOffset = addedTag?.getAttribute("name")?.valueElement?.textOffset
-            if (addedTypeValueOffset != null)
-                editor?.caretModel?.moveToOffset(addedTypeValueOffset)
+            moveCaretToNameValue(addedTag, editor)
         }
+    }
+
+    private fun moveCaretToNameValue(variableTag: XmlTag?, editor: Editor?) {
+        variableTag?.getAttribute("name")?.valueElement?.textOffset?.let { editor?.caretModel?.moveToOffset(it) }
     }
 
     fun findLastSubTag(dataTag: XmlTag, tagName: String): XmlTag? {

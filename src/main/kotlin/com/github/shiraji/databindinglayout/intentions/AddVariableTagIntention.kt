@@ -22,29 +22,31 @@ class AddVariableTagIntention : IntentionAction {
         return rootTag.isDatabindingRootTag()
     }
 
+    companion object {
+        private const val VARIABLE_TAG_TEMPLATE = "<variable name=\"\" type=\"\"/>"
+    }
+
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
         if (file !is XmlFile) return
         val rootTag = file.rootTag ?: return
         val dataTag = rootTag.findFirstSubTag("data")
         val factory = XmlElementFactory.getInstance(project)
 
-        if (dataTag == null) {
-            val newTag = file.rootTag?.addSubTag(factory.createTagFromText("<data><variable name=\"\" type=\"\"/></data>", XMLLanguage.INSTANCE), true) ?: return
-            moveCaretToNameValue(newTag.findFirstSubTag("variable"), editor)
+        val addedVariableTag = if (dataTag == null) {
+            val newTag = factory.createTagFromText("<data>$VARIABLE_TAG_TEMPLATE</data>", XMLLanguage.INSTANCE)
+            val newDataTag = file.rootTag?.addSubTag(newTag, true) ?: return
+            newDataTag.findFirstSubTag("variable")
         } else {
-            val lastImportTag = findLastSubTag(dataTag, "import")
-            val newTag = factory.createTagFromText("<variable/>", XMLLanguage.INSTANCE)
-            newTag.setAttribute("name", "")
-            newTag.setAttribute("type", "")
+            val newTag = factory.createTagFromText(VARIABLE_TAG_TEMPLATE, XMLLanguage.INSTANCE)
 
-            val addedTag = if (lastImportTag == null) {
-                dataTag.addSubTag(newTag, true)
+            val lastImportTag = findLastSubTag(dataTag, "import") // Should be variable???
+            if (lastImportTag == null) {
+                dataTag.addSubTag(newTag, true) ?: return
             } else {
-                dataTag.addAfter(newTag, lastImportTag) as XmlTag
+                dataTag.addAfter(newTag, lastImportTag) as? XmlTag ?: return
             }
-
-            moveCaretToNameValue(addedTag, editor)
         }
+        moveCaretToNameValue(addedVariableTag, editor)
     }
 
     private fun moveCaretToNameValue(variableTag: XmlTag?, editor: Editor?) {

@@ -1,8 +1,7 @@
 package com.github.shiraji.databindinglayout.intentions
 
 import com.github.shiraji.databindinglayout.findFirstDataTag
-import com.github.shiraji.databindinglayout.getRootTag
-import com.github.shiraji.databindinglayout.isDatabindingRootTag
+import com.github.shiraji.databindinglayout.hasDatabindingLayout
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.lang.xml.XMLLanguage
 import com.intellij.openapi.editor.Editor
@@ -15,13 +14,8 @@ import com.intellij.psi.xml.XmlTag
 class AddVariableTagIntention : IntentionAction {
     override fun getFamilyName() = "Add <variable> tag"
     override fun getText() = "Add <variable> tag"
-
     override fun startInWriteAction() = true
-
-    override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
-        val rootTag = file.getRootTag() ?: return false
-        return rootTag.isDatabindingRootTag()
-    }
+    override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?) = file.hasDatabindingLayout()
 
     companion object {
         private const val VARIABLE_TAG_TEMPLATE = "<variable name=\"\" type=\"\"/>"

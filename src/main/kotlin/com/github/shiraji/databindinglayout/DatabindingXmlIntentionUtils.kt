@@ -42,6 +42,8 @@ fun XmlTag.hasNamespaceAndroid() = getAttribute("xmlns:android") != null
 
 fun XmlAttribute.isLayoutTag() = "layout" == PsiTreeUtil.getParentOfType(this, XmlTag::class.java)?.name
 
+fun XmlTag.findFirstDataTag() = findFirstSubTag("data")
+
 fun XmlAttribute.hasDatabindingExpression(): Boolean {
     val value = value ?: return false
     return value.startsWith("@{") && value.endsWith("}")

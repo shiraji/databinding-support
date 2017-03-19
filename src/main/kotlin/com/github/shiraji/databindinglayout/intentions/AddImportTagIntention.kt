@@ -1,5 +1,6 @@
 package com.github.shiraji.databindinglayout.intentions
 
+import com.github.shiraji.databindinglayout.findFirstDataTag
 import com.github.shiraji.databindinglayout.getRootTag
 import com.github.shiraji.databindinglayout.isDatabindingRootTag
 import com.intellij.codeInsight.intention.IntentionAction
@@ -29,7 +30,7 @@ class AddImportTagIntention : IntentionAction {
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
         if (file !is XmlFile) return
         val rootTag = file.rootTag ?: return
-        val dataTag = rootTag.findFirstSubTag("data")
+        val dataTag = rootTag.findFirstDataTag()
         val factory = XmlElementFactory.getInstance(project)
 
         val addedTag = if (dataTag == null) {

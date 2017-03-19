@@ -32,23 +32,25 @@ class AddImportTagIntention : IntentionAction {
         val dataTag = rootTag.findFirstSubTag("data")
         val factory = XmlElementFactory.getInstance(project)
 
-        if (dataTag == null) {
+        val addedTag = if (dataTag == null) {
             val newTag = file.rootTag?.addSubTag(factory.createTagFromText("<data>$IMPORT_TAG_TEMPLATE</data>", XMLLanguage.INSTANCE), true) ?: return
-            newTag.findFirstSubTag("import")?.getAttribute("type")?.valueElement?.textOffset?.let { editor?.caretModel?.moveToOffset(it) }
+            newTag.findFirstSubTag("import")
         } else {
-            val lastImportTag = findLastSubTag(dataTag, "import")
             val newTag = factory.createTagFromText(IMPORT_TAG_TEMPLATE, XMLLanguage.INSTANCE)
 
-            val addedTag = if (lastImportTag == null) {
-                dataTag.addSubTag(newTag, true)
+            val lastImportTag = findLastSubTag(dataTag, "import")
+            if (lastImportTag == null) {
+                dataTag.addSubTag(newTag, true) ?: return
             } else {
-                dataTag.addAfter(newTag, lastImportTag) as XmlTag
+                dataTag.addAfter(newTag, lastImportTag) as? XmlTag ?: return
             }
 
-            val addedTypeValueOffset = addedTag?.getAttribute("type")?.valueElement?.textOffset
-            if (addedTypeValueOffset != null)
-                editor?.caretModel?.moveToOffset(addedTypeValueOffset)
         }
+        moveCaret(addedTag, editor)
+    }
+
+    private fun moveCaret(tag: XmlTag?, editor: Editor?) {
+        tag?.getAttribute("type")?.valueElement?.textOffset?.let { editor?.caretModel?.moveToOffset(it) }
     }
 
     fun findLastSubTag(dataTag: XmlTag, tagName: String): XmlTag? {

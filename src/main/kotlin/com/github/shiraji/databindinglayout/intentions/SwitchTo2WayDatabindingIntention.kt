@@ -1,5 +1,9 @@
 package com.github.shiraji.databindinglayout.intentions
 
+import com.github.shiraji.databindinglayout.getPointingXmlAttribute
+import com.github.shiraji.databindinglayout.hasDatabindingExpression
+import com.github.shiraji.databindinglayout.hasDatabindingLayout
+import com.github.shiraji.databindinglayout.isLayoutTag
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project

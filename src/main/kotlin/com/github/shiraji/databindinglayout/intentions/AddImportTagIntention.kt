@@ -1,5 +1,7 @@
 package com.github.shiraji.databindinglayout.intentions
 
+import com.github.shiraji.databindinglayout.getRootTag
+import com.github.shiraji.databindinglayout.isDatabindingRootTag
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.lang.xml.XMLLanguage
 import com.intellij.openapi.editor.Editor

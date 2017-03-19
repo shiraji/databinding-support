@@ -1,4 +1,4 @@
-package com.github.shiraji.databindinglayout.intentions
+package com.github.shiraji.databindinglayout
 
 import com.intellij.ide.highlighter.XmlFileType
 import com.intellij.openapi.editor.Editor

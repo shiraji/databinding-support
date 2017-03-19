@@ -33,7 +33,7 @@ class AddVariableTagIntention : IntentionAction {
             moveCaretToNameValue(newTag.findFirstSubTag("variable"), editor)
         } else {
             val lastImportTag = findLastSubTag(dataTag, "import")
-            val newTag = XmlElementFactory.getInstance(project).createTagFromText("<variable/>", XMLLanguage.INSTANCE)
+            val newTag = factory.createTagFromText("<variable/>", XMLLanguage.INSTANCE)
             newTag.setAttribute("name", "")
             newTag.setAttribute("type", "")
 

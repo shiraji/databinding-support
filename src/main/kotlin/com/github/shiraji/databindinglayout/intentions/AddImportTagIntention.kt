@@ -22,6 +22,10 @@ class AddImportTagIntention : IntentionAction {
         return rootTag.isDatabindingRootTag()
     }
 
+    companion object {
+        private const val IMPORT_TAG_TEMPLATE = "<import type=\"\"/>"
+    }
+
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
         if (file !is XmlFile) return
         val rootTag = file.rootTag ?: return
@@ -29,12 +33,11 @@ class AddImportTagIntention : IntentionAction {
         val factory = XmlElementFactory.getInstance(project)
 
         if (dataTag == null) {
-            val newTag = file.rootTag?.addSubTag(factory.createTagFromText("<data><import type=\"\"/></data>", XMLLanguage.INSTANCE), true) ?: return
+            val newTag = file.rootTag?.addSubTag(factory.createTagFromText("<data>$IMPORT_TAG_TEMPLATE</data>", XMLLanguage.INSTANCE), true) ?: return
             newTag.findFirstSubTag("import")?.getAttribute("type")?.valueElement?.textOffset?.let { editor?.caretModel?.moveToOffset(it) }
         } else {
             val lastImportTag = findLastSubTag(dataTag, "import")
-            val newTag = factory.createTagFromText("<import/>", XMLLanguage.INSTANCE)
-            newTag.setAttribute("type", "")
+            val newTag = factory.createTagFromText(IMPORT_TAG_TEMPLATE, XMLLanguage.INSTANCE)
 
             val addedTag = if (lastImportTag == null) {
                 dataTag.addSubTag(newTag, true)

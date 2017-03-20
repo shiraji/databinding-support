@@ -1,0 +1,3 @@
+package com.github.shiraji.databindinglayout.intentions
+
+class WrapWith2WayDatabindingExpressionIntentionTest : BaseIntentionTestCase("WrapWith2WayDatabindingExpressionIntention")

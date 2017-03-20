@@ -39,12 +39,12 @@
         </intentionAction>
 
         <intentionAction>
-            <className>com.github.shiraji.databindinglayout.intentions.AddDatabindingExpressionIntention</className>
+            <className>com.github.shiraji.databindinglayout.intentions.WrapWithDatabindingExpressionIntention</className>
             <category>Android</category>
         </intentionAction>
 
         <intentionAction>
-            <className>com.github.shiraji.databindinglayout.intentions.Add2WayDatabindingExpressionIntention</className>
+            <className>com.github.shiraji.databindinglayout.intentions.WrapWith2WayDatabindingExpressionIntention</className>
             <category>Android</category>
         </intentionAction>
 

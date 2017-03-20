@@ -5,11 +5,13 @@ import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiFile
+import com.intellij.psi.xml.XmlAttribute
 
-class AddDatabindingExpressionIntention : IntentionAction {
+abstract class WrapWithDatabindingIntention : IntentionAction {
     override fun getFamilyName() = text
-    override fun getText() = "Wrap with @{}"
     override fun startInWriteAction() = true
+
+    abstract protected fun getTemplate(xmlAttribute: XmlAttribute): String
 
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {
         if (!file.hasDatabindingLayout()) return false
@@ -21,6 +23,7 @@ class AddDatabindingExpressionIntention : IntentionAction {
 
     override fun invoke(project: Project, editor: Editor?, file: PsiFile?) {
         val xmlAttribute = getPointingXmlAttribute(editor, file) ?: return
-        xmlAttribute.value = "@{${xmlAttribute.value}}"
+        xmlAttribute.value = getTemplate(xmlAttribute)
     }
+
 }

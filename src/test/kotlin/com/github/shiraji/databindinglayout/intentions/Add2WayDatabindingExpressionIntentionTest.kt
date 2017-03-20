@@ -1,3 +1,0 @@
-package com.github.shiraji.databindinglayout.intentions
-
-class Add2WayDatabindingExpressionIntentionTest : BaseIntentionTestCase("Add2WayDatabindingExpressionIntention")

@@ -34,7 +34,7 @@ class AddVariableTagIntention : IntentionAction {
         } else {
             val newTag = factory.createTagFromText(VARIABLE_TAG_TEMPLATE, XMLLanguage.INSTANCE)
 
-            val lastImportTag = findLastSubTag(dataTag, "import") // Should be variable???
+            val lastImportTag = findLastSubTag(dataTag, "variable")
             if (lastImportTag == null) {
                 dataTag.addSubTag(newTag, true) ?: return
             } else {

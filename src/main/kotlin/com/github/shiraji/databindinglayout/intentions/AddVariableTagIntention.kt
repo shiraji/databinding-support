@@ -1,6 +1,7 @@
 package com.github.shiraji.databindinglayout.intentions
 
 import com.github.shiraji.databindinglayout.findFirstDataTag
+import com.github.shiraji.databindinglayout.findLastSubTag
 import com.github.shiraji.databindinglayout.hasDatabindingLayout
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.lang.xml.XMLLanguage
@@ -34,7 +35,7 @@ class AddVariableTagIntention : IntentionAction {
         } else {
             val newTag = factory.createTagFromText(VARIABLE_TAG_TEMPLATE, XMLLanguage.INSTANCE)
 
-            val lastImportTag = findLastSubTag(dataTag, "variable")
+            val lastImportTag = dataTag.findLastSubTag("variable")
             if (lastImportTag == null) {
                 dataTag.addSubTag(newTag, true) ?: return
             } else {
@@ -48,8 +49,4 @@ class AddVariableTagIntention : IntentionAction {
         variableTag?.getAttribute("name")?.valueElement?.textOffset?.let { editor?.caretModel?.moveToOffset(it) }
     }
 
-    fun findLastSubTag(dataTag: XmlTag, tagName: String): XmlTag? {
-        val importTags = dataTag.findSubTags(tagName)
-        return if (importTags.isNotEmpty()) importTags[importTags.size - 1] else null
-    }
 }

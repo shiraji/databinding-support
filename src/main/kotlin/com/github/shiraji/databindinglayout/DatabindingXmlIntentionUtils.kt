@@ -71,3 +71,9 @@ fun collectLayoutVariableTypesOf(psiClass: PsiClass): List<XmlAttribute>? {
         it.value == psiClass.qualifiedName
     }
 }
+
+fun XmlTag.findLastSubTag(tagName: String): XmlTag? {
+    val tags = findSubTags(tagName)
+    return if (tags.isNotEmpty()) tags[tags.lastIndex] else null
+}
+

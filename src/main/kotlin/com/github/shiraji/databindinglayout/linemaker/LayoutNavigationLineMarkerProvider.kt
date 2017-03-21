@@ -1,6 +1,6 @@
 package com.github.shiraji.databindinglayout.linemaker
 
-import com.github.shiraji.databindinglayout.intentions.collectLayoutVariableTypesOf
+import com.github.shiraji.databindinglayout.collectLayoutVariableTypesOf
 import com.intellij.codeHighlighting.Pass
 import com.intellij.codeInsight.daemon.GutterIconNavigationHandler
 import com.intellij.codeInsight.daemon.LineMarkerInfo

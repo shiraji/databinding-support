@@ -1,4 +1,4 @@
-package com.github.shiraji.databindinglayout.intentions
+package com.github.shiraji.databindinglayout
 
 import com.intellij.ide.highlighter.XmlFileType
 import com.intellij.openapi.editor.Editor
@@ -42,6 +42,8 @@ fun XmlTag.hasNamespaceAndroid() = getAttribute("xmlns:android") != null
 
 fun XmlAttribute.isLayoutTag() = "layout" == PsiTreeUtil.getParentOfType(this, XmlTag::class.java)?.name
 
+fun XmlTag.findFirstDataTag() = findFirstSubTag("data")
+
 fun XmlAttribute.hasDatabindingExpression(): Boolean {
     val value = value ?: return false
     return value.startsWith("@{") && value.endsWith("}")
@@ -69,3 +71,9 @@ fun collectLayoutVariableTypesOf(psiClass: PsiClass): List<XmlAttribute>? {
         it.value == psiClass.qualifiedName
     }
 }
+
+fun XmlTag.findLastSubTag(tagName: String): XmlTag? {
+    val tags = findSubTags(tagName)
+    return if (tags.isNotEmpty()) tags[tags.lastIndex] else null
+}
+

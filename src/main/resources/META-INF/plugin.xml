@@ -5,7 +5,14 @@
     <vendor email="isogai.shiraji@gmail.com" url="http://github.com/shiraji">Shiraji</vendor>
 
     <description><![CDATA[
-    Intellij plugin that support [Android Data Binding Library](https://developer.android.com/topic/libraries/data-binding/index.html)
+    Intellij plugin that support Android Data Binding Library. This plugin has following features:
+        <ul>
+           <li>Convert non-databinding layout to databinding layout</li>
+           <li>Add data/variable/import tags</li>
+           <li>Wrap with @{} or @={}</li>
+           <li>Switch @{} and @={}</li>
+           <li>Jump from class to layout</li>
+        </ul>
     ]]></description>
 
     <change-notes><![CDATA[

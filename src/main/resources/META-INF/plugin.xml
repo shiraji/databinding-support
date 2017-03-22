@@ -7,11 +7,13 @@
     <description><![CDATA[
     Intellij plugin that support Android Data Binding Library. This plugin has following features:
         <ul>
-           <li>Convert non-databinding layout to databinding layout</li>
-           <li>Add data/variable/import tags</li>
-           <li>Wrap with @{} or @={}</li>
-           <li>Switch @{} and @={}</li>
-           <li>Jump from class to layout</li>
+           <li><a href="https://github.com/shiraji/databinding-support#wrap-with-layoutlayout">Convert non-databinding layout to databinding layout</a></li>
+           <li><a href="https://github.com/shiraji/databinding-support#add-data-tag">Add data tag</a></li>
+           <li><a href="https://github.com/shiraji/databinding-support#add-import">Add import tag</a></li>
+           <li><a href="https://github.com/shiraji/databinding-support#wrap-with-">Wrap with @{}</a></li>
+           <li><a href="https://github.com/shiraji/databinding-support#wrap-with--1">Wrap with @={}</a></li>
+           <li><a href="https://github.com/shiraji/databinding-support#switch--and-">Switch between @{} and @={}</a></li>
+           <li><a href="https://github.com/shiraji/databinding-support#jump-class---layout">Jump from a class to layouts that the instance is binded</a></li>
         </ul>
     ]]></description>
 

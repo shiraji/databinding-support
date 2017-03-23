@@ -7,13 +7,14 @@
     <description><![CDATA[
     Intellij plugin that support Android Data Binding Library. This plugin has following features:
         <ul>
-           <li><a href="https://github.com/shiraji/databinding-support#wrap-with-layoutlayout">Convert non-databinding layout to databinding layout</a></li>
-           <li><a href="https://github.com/shiraji/databinding-support#add-data-tag">Add data tag</a></li>
-           <li><a href="https://github.com/shiraji/databinding-support#add-import">Add import tag</a></li>
-           <li><a href="https://github.com/shiraji/databinding-support#wrap-with-">Wrap with @{}</a></li>
-           <li><a href="https://github.com/shiraji/databinding-support#wrap-with--1">Wrap with @={}</a></li>
-           <li><a href="https://github.com/shiraji/databinding-support#switch--and-">Switch between @{} and @={}</a></li>
-           <li><a href="https://github.com/shiraji/databinding-support#jump-class---layout">Jump from a class to layouts that the instance is binded</a></li>
+           <li>Convert non-databinding layout to databinding layout<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap.gif"/></li>
+           <li>Add data tag<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/add_data.gif"/></li>
+           <li>Add import tag<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/add_import.gif"/></li>
+           <li>Add variable tag<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/add_variable.gif"/></li>
+           <li>Wrap with @{}<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap_with_tag.gif"/></li>
+           <li>Wrap with @={}<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap_2way.gif"/></li>
+           <li>Switch between @{} and @={}<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/switch.gif"/></li>
+           <li>Jump from a class to layouts that the instance is binded<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/jump_to_layout.gif"/></li>
         </ul>
     ]]></description>
 

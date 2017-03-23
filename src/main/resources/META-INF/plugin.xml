@@ -5,7 +5,17 @@
     <vendor email="isogai.shiraji@gmail.com" url="http://github.com/shiraji">Shiraji</vendor>
 
     <description><![CDATA[
-    Intellij plugin that support [Android Data Binding Library](https://developer.android.com/topic/libraries/data-binding/index.html)
+    Intellij plugin that support Android Data Binding Library. This plugin has following features:
+        <ul>
+           <li>Convert non-databinding layout to databinding layout<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap.gif"/></li>
+           <li>Add data tag<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/add_data.gif"/></li>
+           <li>Add import tag<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/add_import.gif"/></li>
+           <li>Add variable tag<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/add_variable.gif"/></li>
+           <li>Wrap with @{}<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap_with_tag.gif"/></li>
+           <li>Wrap with @={}<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/wrap_2way.gif"/></li>
+           <li>Switch between @{} and @={}<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/switch.gif"/></li>
+           <li>Jump from a class to layouts that the instance is binded<br/><img src="https://raw.githubusercontent.com/shiraji/databinding-support/master/websites/images/jump_to_layout.gif"/></li>
+        </ul>
     ]]></description>
 
     <change-notes><![CDATA[

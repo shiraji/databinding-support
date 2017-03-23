@@ -19,10 +19,9 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        <p>1.0.6</p>
+        <p>1.0.7</p>
         <ul>
-          <li>Add Class -> layout navigation #10</li>
-          <li>Remove condition of requiring data tag for variable/import intention #30</li>
+          <li>Fix add import/variable tag's order</li>
         </ul>
         <p>Older version changes are listed on <a href="https://github.com/shiraji/databinding-support/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
     ]]>

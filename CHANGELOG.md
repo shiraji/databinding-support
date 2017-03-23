@@ -1,3 +1,7 @@
+### [ver 1.0.6](https://github.com/shiraji/databinding-support/releases/tag/1.0.7)
+
+* Fix add import/variable tag's order
+
 ### [ver 1.0.6](https://github.com/shiraji/databinding-support/releases/tag/1.0.6)
 
 * Add Class -> layout navigation #10

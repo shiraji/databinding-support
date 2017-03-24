@@ -2,6 +2,7 @@ package com.github.shiraji.databindinglayout
 
 import com.intellij.ide.highlighter.XmlFileType
 import com.intellij.openapi.editor.Editor
+import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
@@ -12,6 +13,7 @@ import com.intellij.psi.util.PsiTreeUtil
 import com.intellij.psi.xml.XmlAttribute
 import com.intellij.psi.xml.XmlFile
 import com.intellij.psi.xml.XmlTag
+import org.jetbrains.kotlin.psi.KtClass
 
 fun getPointingElement(editor: Editor?, file: PsiFile?): PsiElement? {
     val offset = editor?.caretModel?.offset ?: return null
@@ -54,8 +56,11 @@ fun XmlAttribute.has2WayDatabindingExpression(): Boolean {
     return value.startsWith("@={") && value.endsWith("}")
 }
 
-fun collectLayoutVariableTypesOf(psiClass: PsiClass): List<XmlAttribute>? {
-    val project = psiClass.project
+fun collectLayoutVariableTypesOf(psiClass: PsiClass): List<XmlAttribute>? = collectLayoutVariableTypesOf(psiClass.project, psiClass.qualifiedName)
+
+fun collectLayoutVariableTypesOf(ktClass: KtClass): List<XmlAttribute>? = collectLayoutVariableTypesOf(ktClass.project, ktClass.fqName.toString())
+
+private fun collectLayoutVariableTypesOf(project: Project, qualifiedName: String?): List<XmlAttribute>? {
     val psiManager = PsiManager.getInstance(project)
     return FileTypeIndex.getFiles(XmlFileType.INSTANCE, ProjectScope.getProjectScope(project)).filterNot {
         it.path.contains("/.idea/")
@@ -68,7 +73,7 @@ fun collectLayoutVariableTypesOf(psiClass: PsiClass): List<XmlAttribute>? {
     }.map {
         it.getAttribute("type")
     }.filterNotNull().filter {
-        it.value == psiClass.qualifiedName
+        it.value == qualifiedName
     }
 }
 

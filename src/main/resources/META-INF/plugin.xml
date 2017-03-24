@@ -35,6 +35,7 @@
     <!-- uncomment to enable plugin in all products
     <depends>com.intellij.modules.lang</depends>
     -->
+    <depends>org.jetbrains.kotlin</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <intentionAction>
@@ -78,6 +79,7 @@
         </intentionAction>
 
         <codeInsight.lineMarkerProvider language="JAVA" implementationClass="com.github.shiraji.databindinglayout.linemaker.LayoutNavigationLineMarkerProvider" />
+        <codeInsight.lineMarkerProvider language="kotlin" implementationClass="com.github.shiraji.databindinglayout.linemaker.LayoutNavigationLineMarkerProvider" />
     </extensions>
 
     <application-components>

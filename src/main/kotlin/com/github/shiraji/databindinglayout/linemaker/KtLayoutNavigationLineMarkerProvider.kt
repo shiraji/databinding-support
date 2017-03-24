@@ -20,21 +20,10 @@ import com.intellij.util.containers.isNullOrEmpty
 import org.jetbrains.kotlin.psi.KtClass
 import java.awt.event.MouseEvent
 
-class LayoutNavigationLineMarkerProvider : LineMarkerProvider {
+class KtLayoutNavigationLineMarkerProvider : LineMarkerProvider {
 
     override fun getLineMarkerInfo(element: PsiElement): LineMarkerInfo<*>? {
-        val psiClass = element as? PsiClass
-        val ktClass = element as? KtClass
-        return if (psiClass != null) getLineMarkerInfo(psiClass)
-        else if (ktClass != null) getLineMarkerInfo(ktClass)
-    }
-
-    private fun getLineMarkerInfo(psiClass: PsiClass): LineMarkerInfo<*>? {
-        if (collectLayoutVariableTypesOf(psiClass).isNullOrEmpty()) return null
-        return LineMarkerInfo<PsiElement>(psiClass, psiClass.nameIdentifier!!.textRange, AllIcons.FileTypes.Xml, Pass.UPDATE_ALL, null, LayoutIconNavigationHandler(), GutterIconRenderer.Alignment.LEFT)
-    }
-
-    private fun getLineMarkerInfo(ktClass: KtClass): LineMarkerInfo<*>? {
+        val ktClass = element as? KtClass ?: return null
         if (collectLayoutVariableTypesOf(ktClass).isNullOrEmpty()) return null
         return LineMarkerInfo<PsiElement>(ktClass, ktClass.nameIdentifier!!.textRange, AllIcons.FileTypes.Xml, Pass.UPDATE_ALL, null, LayoutIconNavigationHandler(), GutterIconRenderer.Alignment.LEFT)
     }
@@ -45,7 +34,7 @@ class LayoutNavigationLineMarkerProvider : LineMarkerProvider {
 
     private class LayoutIconNavigationHandler : GutterIconNavigationHandler<PsiElement> {
         override fun navigate(mouseEvent: MouseEvent?, psiElement: PsiElement?) {
-            val psiClass = psiElement as? PsiClass ?: return
+            val psiClass = psiElement as? KtClass ?: return
             val types = collectLayoutVariableTypesOf(psiClass)
             if (types == null || types.isNullOrEmpty()) return
             when (types.size) {

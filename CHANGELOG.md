@@ -1,4 +1,8 @@
-### [ver 1.0.6](https://github.com/shiraji/databinding-support/releases/tag/1.0.7)
+### [ver 1.0.8](https://github.com/shiraji/databinding-support/releases/tag/1.0.8)
+
+* Add Kotlin Class -> layout navigation #33
+
+### [ver 1.0.7](https://github.com/shiraji/databinding-support/releases/tag/1.0.7)
 
 * Fix add import/variable tag's order
 

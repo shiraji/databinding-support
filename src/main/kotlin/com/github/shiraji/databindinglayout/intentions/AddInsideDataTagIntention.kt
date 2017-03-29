@@ -13,7 +13,7 @@ import com.intellij.psi.xml.XmlFile
 import com.intellij.psi.xml.XmlTag
 
 abstract class AddInsideDataTagIntention : IntentionAction {
-    override fun getText() = "Add <$tagName> tag"
+    abstract override fun getText(): String
     override fun getFamilyName() = text
     override fun startInWriteAction() = true
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?) = file.hasDatabindingLayout()

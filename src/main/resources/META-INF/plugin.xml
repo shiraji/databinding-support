@@ -19,9 +19,9 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        <p>1.0.8</p>
+        <p>1.0.9</p>
         <ul>
-          <li>Add Kotlin Class -> layout navigation #33</li>
+          <li>Fix intention Description Dir URL is null #39</li>
         </ul>
         <p>Older version changes are listed on <a href="https://github.com/shiraji/databinding-support/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
     ]]>

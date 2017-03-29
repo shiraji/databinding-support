@@ -1,3 +1,7 @@
+### [ver 1.0.9](https://github.com/shiraji/databinding-support/releases/tag/1.0.9)
+
+* Fix Intention Description Dir URL is null #39
+
 ### [ver 1.0.8](https://github.com/shiraji/databinding-support/releases/tag/1.0.8)
 
 * Add Kotlin Class -> layout navigation #33

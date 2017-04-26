@@ -1,3 +1,8 @@
+### [ver 1.1.0](https://github.com/shiraji/databinding-support/releases/tag/1.1.0)
+
+* NoSuchMethodError in Intelij 2017.1 #35
+* AS 2.4 preview3 on error (using gradle sync) #44
+
 ### [ver 1.0.9](https://github.com/shiraji/databinding-support/releases/tag/1.0.9)
 
 * Fix Intention Description Dir URL is null #39

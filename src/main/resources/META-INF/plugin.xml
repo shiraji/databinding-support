@@ -19,9 +19,10 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        <p>1.0.9</p>
+        <p>1.1.0</p>
         <ul>
-          <li>Fix intention Description Dir URL is null #39</li>
+          <li>NoSuchMethodError in Intelij 2017.1 #35</li>
+          <li>AS 2.4 preview3 on error (using gradle sync) #44</li>
         </ul>
         <p>Older version changes are listed on <a href="https://github.com/shiraji/databinding-support/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
     ]]>

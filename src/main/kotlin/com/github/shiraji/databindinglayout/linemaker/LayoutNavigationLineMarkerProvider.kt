@@ -8,14 +8,14 @@ import com.intellij.icons.AllIcons
 import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.PsiClass
 import com.intellij.psi.PsiElement
-import com.intellij.util.containers.isNullOrEmpty
 
 class LayoutNavigationLineMarkerProvider : LineMarkerProvider {
 
     override fun getLineMarkerInfo(element: PsiElement): LineMarkerInfo<*>? {
         val psiClass = element as? PsiClass ?: return null
         val qualifiedName = psiClass.qualifiedName ?: return null
-        if (collectLayoutVariableTypesOf(psiClass.project, qualifiedName).isNullOrEmpty()) return null
+        val layoutVariableTypes = collectLayoutVariableTypesOf(psiClass.project, qualifiedName)
+        if (layoutVariableTypes == null || layoutVariableTypes.isEmpty()) return null
         return LineMarkerInfo<PsiElement>(psiClass, psiClass.nameIdentifier!!.textRange, AllIcons.FileTypes.Xml, Pass.UPDATE_ALL, null, LayoutIconNavigationHandler(qualifiedName), GutterIconRenderer.Alignment.LEFT)
     }
 

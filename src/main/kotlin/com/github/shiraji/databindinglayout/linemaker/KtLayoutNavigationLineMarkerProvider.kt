@@ -7,7 +7,6 @@ import com.intellij.codeInsight.daemon.LineMarkerProvider
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.editor.markup.GutterIconRenderer
 import com.intellij.psi.PsiElement
-import com.intellij.util.containers.isNullOrEmpty
 import org.jetbrains.kotlin.psi.KtClass
 
 class KtLayoutNavigationLineMarkerProvider : LineMarkerProvider {
@@ -15,7 +14,8 @@ class KtLayoutNavigationLineMarkerProvider : LineMarkerProvider {
     override fun getLineMarkerInfo(element: PsiElement): LineMarkerInfo<*>? {
         val ktClass = element as? KtClass ?: return null
         val qualifiedName = ktClass.fqName.toString()
-        if (collectLayoutVariableTypesOf(ktClass.project, qualifiedName).isNullOrEmpty()) return null
+        val layoutVariables = collectLayoutVariableTypesOf(ktClass.project, qualifiedName)
+        if (layoutVariables == null || layoutVariables.isEmpty()) return null
         return LineMarkerInfo<PsiElement>(ktClass, ktClass.nameIdentifier!!.textRange, AllIcons.FileTypes.Xml, Pass.UPDATE_ALL, null, LayoutIconNavigationHandler(qualifiedName), GutterIconRenderer.Alignment.LEFT)
     }
 

@@ -11,14 +11,13 @@ import com.intellij.openapi.ui.popup.JBPopupFactory
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.xml.XmlTagImpl
 import com.intellij.psi.xml.XmlAttribute
-import com.intellij.util.containers.isNullOrEmpty
 import java.awt.event.MouseEvent
 
 class LayoutIconNavigationHandler(val qualifiedName: String) : GutterIconNavigationHandler<PsiElement> {
     override fun navigate(mouseEvent: MouseEvent?, psiElement: PsiElement?) {
         psiElement ?: return
         val types = collectLayoutVariableTypesOf(psiElement.project, qualifiedName)
-        if (types == null || types.isNullOrEmpty()) return
+        if (types == null || types.isEmpty()) return
         when (types.size) {
             0 -> return
             1 -> jumpToLayout(types.first())

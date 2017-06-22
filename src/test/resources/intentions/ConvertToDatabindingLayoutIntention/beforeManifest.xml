@@ -1,4 +1,4 @@
-<!-- "Convert to databinding layout" "false" -->
+<!-- "Wrap with data binding layout" "false" -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="io.github.droidkaigi.confsched">
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>

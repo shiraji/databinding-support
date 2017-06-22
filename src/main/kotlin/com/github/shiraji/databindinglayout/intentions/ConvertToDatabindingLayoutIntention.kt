@@ -15,8 +15,8 @@ class ConvertToDatabindingLayoutIntention : IntentionAction {
         val BLACK_LIST = listOf("manifest", "project", "component", "module", "selector", "menu", "resources", "alpha")
     }
 
-    override fun getText() = "Convert to databinding layout"
-    override fun getFamilyName() = "Convert to databinding layout"
+    override fun getText() = "Wrap with data binding layout"
+    override fun getFamilyName() = "Wrap with data binding layout"
     override fun startInWriteAction() = true
 
     override fun isAvailable(project: Project, editor: Editor?, file: PsiFile?): Boolean {

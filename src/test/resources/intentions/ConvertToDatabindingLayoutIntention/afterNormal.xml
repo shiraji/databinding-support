@@ -1,4 +1,4 @@
-<!-- "Convert to databinding layout" "true" -->
+<!-- "Wrap with data binding layout" "true" -->
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout

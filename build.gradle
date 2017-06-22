@@ -26,7 +26,6 @@ ext {
 intellij {
     version '15.0.4'
     plugins = ['Kotlin']
-    pluginName 'Convert to Databinding layout'
     alternativeIdePath = '/Applications/Android Studio.app'
     updateSinceUntilBuild = false
     sameSinceUntilBuild = false

@@ -1,3 +1,7 @@
+### [ver 1.1.1](https://github.com/shiraji/databinding-support/releases/tag/1.1.1)
+
+* Change the text of "Convert to databinding layout" #48
+
 ### [ver 1.1.0](https://github.com/shiraji/databinding-support/releases/tag/1.1.0)
 
 * NoSuchMethodError in Intelij 2017.1 #35

@@ -1,7 +1,7 @@
 <idea-plugin version="2" url="https://plugins.jetbrains.com/plugin/9271">
     <id>com.github.shiraji.databindinglayout</id>
     <name>Databinding Support</name>
-    <version>1.0.5</version>
+    <version>1.1.1</version>
     <vendor email="isogai.shiraji@gmail.com" url="http://github.com/shiraji">Shiraji</vendor>
 
     <description><![CDATA[
@@ -19,10 +19,9 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        <p>1.1.0</p>
+        <p>1.1.1</p>
         <ul>
-          <li>NoSuchMethodError in Intelij 2017.1 #35</li>
-          <li>AS 2.4 preview3 on error (using gradle sync) #44</li>
+          <li>Change the text of "Convert to databinding layout" #48</li>
         </ul>
         <p>Older version changes are listed on <a href="https://github.com/shiraji/databinding-support/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
     ]]>
